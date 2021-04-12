@@ -99,7 +99,7 @@ export default async function register(
       createdAt = parseInt(item.createdAt, 10);
       statusCode = 200;
     } else {
-      ticketNumber = generateRandomNumber()
+      ticketNumber = parseInt(generateRandomNumber())
       createdAt = Date.now();
 
       const newItem = {
