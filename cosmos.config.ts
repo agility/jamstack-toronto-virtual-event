@@ -1,6 +1,5 @@
 // @ts-check
 import crypto from 'crypto';
-import { areIntervalsOverlapping } from 'date-fns';
 
 const cosmosConfig = {
     endpoint: process.env.AZURE_COSMOS_URI,
@@ -35,7 +34,7 @@ const myRandomInts = function(quantity: number, max: number){
 }
 
 
-module.exports = {
+export {
     cosmosConfig,
     emailToId,
     generateRandomNumber
