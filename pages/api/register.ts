@@ -21,7 +21,9 @@ import validator from 'validator';
 import { SAMPLE_TICKET_NUMBER, COOKIE } from '@lib/constants';
 import cookie from 'cookie';
 import ms from 'ms';
-import redis, { emailToId } from '@lib/redis';
+//import redis, { emailToId } from '@lib/redis';
+import { cosmosConfig, emailToId, generateRandomNumber } from '../../cosmos.config'
+import { CosmosClient } from '@azure/cosmos'
 
 type ErrorResponse = {
   error: {
@@ -59,29 +61,56 @@ export default async function register(
   let statusCode: number;
   let name: string | undefined = undefined;
   let username: string | undefined = undefined;
-  if (redis) {
-    id = emailToId(email);
-    const existingTicketNumberString = await redis.hget(`id:${id}`, 'ticketNumber');
+  if (cosmosConfig) {
 
-    if (existingTicketNumberString) {
-      const item = await redis.hmget(`id:${id}`, 'name', 'username', 'createdAt');
-      name = item[0]!;
-      username = item[1]!;
-      ticketNumber = parseInt(existingTicketNumberString, 10);
-      createdAt = parseInt(item[2]!, 10);
+    const { endpoint, key, databaseId, containerId } = cosmosConfig;
+
+    const client = new CosmosClient({ endpoint, key });
+
+    const database = client.database(databaseId);
+    const container = database.container(containerId);
+
+    id = emailToId(email);
+    //const existingTicketNumberString = await redis.hget(`id:${id}`, 'ticketNumber');
+    let existingTicketNumber = null;
+    let item = null;
+
+    const querySpec = {
+      query: `SELECT * from c where c.email = @email`,
+      parameters: [{
+        name: '@email',
+        value: email
+      }]
+    }
+    const { resources: items } = await container.items.query(querySpec).fetchAll();
+    
+    if(items.length > 0) {
+      item = items[0];
+      existingTicketNumber = item?.ticketNumber;
+    }
+
+    console.log(item);
+
+    if (existingTicketNumber) {
+      console.log(item);
+      name = item.name;
+      username = item.username;
+      ticketNumber = item.ticketNumber;
+      createdAt = parseInt(item.createdAt, 10);
       statusCode = 200;
     } else {
-      ticketNumber = await redis.incr('count');
+      ticketNumber = generateRandomNumber()
       createdAt = Date.now();
-      await redis.hmset(
-        `id:${id}`,
-        'email',
+
+      const newItem = {
+        id,
         email,
-        'ticketNumber',
         ticketNumber,
-        'createdAt',
         createdAt
-      );
+      }
+
+      const { resource: createdItem } = await container.items.create(newItem);
+      
       statusCode = 201;
     }
   } else {
