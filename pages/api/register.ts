@@ -65,10 +65,10 @@ export default async function register(
 
     const { endpoint, key, databaseId, containerId } = cosmosConfig;
 
-    const client = new CosmosClient({ endpoint, key });
+    const client = new CosmosClient({ endpoint: endpoint as string, key: key as string });
 
-    const database = client.database(databaseId);
-    const container = database.container(containerId);
+    const database = client.database(databaseId as string);
+    const container = database.container(containerId as string);
 
     id = emailToId(email);
     //const existingTicketNumberString = await redis.hget(`id:${id}`, 'ticketNumber');
