@@ -44,6 +44,8 @@ export default function Ticket({ username, name, ticketNumber, sharePage }: Prop
   );
   const divRef = useRef<HTMLDivElement>(null);
 
+  console.log(username, name, ticketNumber);
+
   useEffect(() => {
     if (ticketRef.current && !window.matchMedia('(pointer: coarse)').matches) {
       Tilt.init(ticketRef.current, {
@@ -78,7 +80,8 @@ export default function Ticket({ username, name, ticketNumber, sharePage }: Prop
               )
             ) : (
               <>
-                You're in. <br /> Make it unique.
+                {/* You're in. <br /> Make it unique. */}
+                You're in!
               </>
             )}
           </h2>
@@ -89,13 +92,14 @@ export default function Ticket({ username, name, ticketNumber, sharePage }: Prop
               </>
             ) : (
               <>
-                Generate a unique ticket image with <br className={styleUtils['hide-on-mobile']} />
-                your GitHub profile.
+                {/* Generate a unique ticket image with <br className={styleUtils['hide-on-mobile']} />
+                your GitHub profile. */}
+                We'll send you more information on the event as we get closer.
               </>
             )}
           </p>
         </div>
-        <div className={cn(styleUtils.appear, styleUtils['appear-third'])}>
+        {/* <div className={cn(styleUtils.appear, styleUtils['appear-third'])}>
           {!sharePage ? (
             <TicketForm
               defaultUsername={username}
@@ -104,9 +108,9 @@ export default function Ticket({ username, name, ticketNumber, sharePage }: Prop
           ) : (
             <Form sharePage />
           )}
-        </div>
+        </div> */}
       </div>
-      <div className={styles['ticket-visual-wrapper']}>
+      {/* <div className={styles['ticket-visual-wrapper']}>
         <div
           ref={ticketRef}
           className={cn(styles['ticket-visual'], styleUtils.appear, styleUtils['appear-fourth'])}
@@ -134,7 +138,7 @@ export default function Ticket({ username, name, ticketNumber, sharePage }: Prop
             )}
           </>
         )}
-      </div>
+      </div> */}
     </div>
   );
 }
