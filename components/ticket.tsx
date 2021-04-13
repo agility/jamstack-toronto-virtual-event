@@ -94,7 +94,7 @@ export default function Ticket({ username, name, ticketNumber, sharePage }: Prop
               <>
                 {/* Generate a unique ticket image with <br className={styleUtils['hide-on-mobile']} />
                 your GitHub profile. */}
-                We'll send you more information on the event as we get closer.
+                This is a pre-announcement. We'll send you speaker and talk information very shortly. We're looking forward to it!
               </>
             )}
           </p>
