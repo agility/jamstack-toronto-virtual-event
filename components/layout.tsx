@@ -20,7 +20,7 @@ import { useRouter } from 'next/router';
 import { SkipNavContent } from '@reach/skip-nav';
 import { NAVIGATION } from '@lib/constants';
 import styles from './layout.module.css';
-import Logo from './icons/icon-logo';
+import Logo from './logo';
 import MobileMenu from './mobile-menu';
 import Footer, { HostedByVercel } from './footer';
 import ViewSource from '@components/view-source';
@@ -43,7 +43,7 @@ export default function Layout({ children, className, hideNav, layoutStyles }: P
         {!hideNav && (
           <header className={cn(styles.header)}>
             <div className={styles['header-logos']}>
-              <MobileMenu key={router.asPath} />
+              {/* <MobileMenu key={router.asPath} /> */}
               <Link href="/">
                 {/* eslint-disable-next-line */}
                 <a className={styles.logo}>
@@ -52,7 +52,7 @@ export default function Layout({ children, className, hideNav, layoutStyles }: P
               </Link>
             </div>
             <div className={styles.tabs}>
-              {NAVIGATION.map(({ name, route }) => (
+              {/* {NAVIGATION.map(({ name, route }) => (
                 <Link key={name} href={route}>
                   <a
                     className={cn(styles.tab, {
@@ -62,10 +62,10 @@ export default function Layout({ children, className, hideNav, layoutStyles }: P
                     {name}
                   </a>
                 </Link>
-              ))}
+              ))} */}
             </div>
             <div className={cn(styles['header-right'])}>
-              <HostedByVercel />
+              {/* <HostedByVercel /> */}
             </div>
           </header>
         )}

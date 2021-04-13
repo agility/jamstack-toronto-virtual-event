@@ -21,6 +21,7 @@ import Layout from './layout';
 import ConfContainer from './conf-container';
 import Hero from './hero';
 import Form from './form';
+import SponsorsHero from './sponsors-hero';
 import LearnMore from './learn-more';
 
 type Props = {
@@ -51,6 +52,7 @@ export default function Conf({
             <>
               <Hero />
               <Form />
+              <SponsorsHero />
               <LearnMore />
             </>
           ) : (

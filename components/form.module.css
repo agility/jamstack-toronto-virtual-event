@@ -31,9 +31,9 @@
   width: 100%;
   background: transparent;
   outline: none;
-  height: 56px;
-  padding-left: 15px;
-  padding-right: 15px;
+  height: 65px;
+  padding-left: 20px;
+  padding-right: 20px;
   font-size: var(--text-md);
   color: #fff;
   font-family: inherit;
@@ -51,7 +51,7 @@
 }
 
 .input-label {
-  background-color: var(--gray);
+  background-color: #000;
   border-radius: var(--space-2x);
   border: 1px solid transparent;
   transition: border-color 0.2s ease, background-color 0.2s ease;
@@ -59,7 +59,7 @@
 }
 
 .input-label.focused {
-  background-color: #33373c;
+  background-color: var(--gray);
 }
 
 .input-label.error {
@@ -93,8 +93,8 @@
   height: 56px;
   margin-top: var(--space-4x);
   border-radius: var(--space-2x);
-  border: 1px solid var(--brand);
-  background: var(--brand);
+  border: none;
+  background: var(--secondary-color);
   cursor: pointer;
   font-family: inherit;
   font-size: var(--text-md);
@@ -118,7 +118,8 @@
   .submit.register {
     width: 120px;
     height: 40px;
-    margin-top: 0;
+    margin-top: 5px;
+    margin-right: 5px;
     position: absolute;
     border-radius: 5px;
     right: var(--space-2x);
@@ -132,8 +133,7 @@
 
 .submit.default:hover,
 .submit.default:focus {
-  background: black;
-  color: var(--brand);
+  background: var(--brand);
 }
 
 .submit.default.generate-with-github:hover path,

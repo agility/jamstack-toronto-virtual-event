@@ -15,8 +15,13 @@
  */
 
 .logo {
+  width: 145px;
+  height: 65px;
   display: flex;
   align-items: center;
+  background-image: url('/logo-jamstack-to.png');
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .icon {

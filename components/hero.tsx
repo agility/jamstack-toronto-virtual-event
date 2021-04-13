@@ -17,41 +17,40 @@
 import cn from 'classnames';
 import styleUtils from './utils.module.css';
 import styles from './hero.module.css';
-import { BRAND_NAME, DATE, SITE_DESCRIPTION } from '@lib/constants';
+import {  SITE_NAME, SITE_DESCRIPTION, SITE_PRESENTS, DATE } from '@lib/constants';
 
 export default function Hero() {
   return (
     <div className={styles.wrapper}>
-      <h2
+      <h3
         className={cn(
           styleUtils.appear,
           styleUtils['appear-third'],
-          styleUtils['show-on-mobile'],
-          styles.description
+          styles.presents
         )}
       >
-        {SITE_DESCRIPTION}
-      </h2>
+        {SITE_PRESENTS}
+      </h3>
       <h1 className={cn(styleUtils.appear, styleUtils['appear-third'], styles.hero)}>
-        The first {BRAND_NAME}
-        <br className={styleUtils['show-on-desktop']} /> global user conference
+        {SITE_NAME}
       </h1>
       <h2
         className={cn(
           styleUtils.appear,
           styleUtils['appear-third'],
-          styleUtils['show-on-tablet'],
           styles.description
         )}
       >
-        {SITE_DESCRIPTION}
+        <span>jamstack</span>
+        <span className={styles.spacer}>.</span>
+        <span>wordpress</span>
+        <span className={styles.spacer}>.</span>
+        <span>api</span>
+        <span className={styles.spacer}>.</span>
+        <span>headless</span>
       </h2>
-      <div className={cn(styleUtils.appear, styleUtils['appear-fourth'], styles.info)}>
+      <div className={cn(styleUtils.appear, styleUtils['appear-fourth'], styles.date)}>
         <p>{DATE}</p>
-        <div className={styles['description-separator']} />
-        <p>
-          <strong>Online</strong>
-        </p>
       </div>
     </div>
   );

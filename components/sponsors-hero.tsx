@@ -14,20 +14,21 @@
  * limitations under the License.
  */
 
-import cn from 'classnames';
-import styleUtils from './utils.module.css';
-import styles from './contact.module.css';
-import { REPO } from '@lib/constants';
+ import cn from 'classnames';
+ import styleUtils from './utils.module.css';
+ import styles from './sponsors-hero.module.css';
+ 
+ export default function SponsorsHero() {
+   return (
+     <div className={styles.sponsorsHero}>
+       <p>Event Sponsors:</p>
 
-export default function LearnMore() {
-  return (
-    <div></div>
-    // <div className={cn(styleUtils.appear, styleUtils['appear-fifth'], styles.contact)}>
-    //   Learn more on{' '}
-    //   <a href={REPO} className={styles['contact-email']} target="_blank" rel="noopener noreferrer">
-    //     GitHub
-    //   </a>
-    //   .
-    // </div>
-  );
-}
+       <ul className={styles.sponsorsList}>
+        <li><img src="/logo-gatsby.svg" alt="Gatsby" /></li>
+        <li><img src="/logo-agility.svg" alt="Agility" /></li>
+       </ul>
+
+       <p className={styles.sponsorOutreach}>Interesting in sponsorship? Click here for Sponsor Prospectus.</p>
+     </div>
+   );
+ }
