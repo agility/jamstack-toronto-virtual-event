@@ -21,14 +21,14 @@
  export default function SponsorsHero() {
    return (
      <div className={styles.sponsorsHero}>
-       <p>Event Sponsors:</p>
+       <p>Sponsors:</p>
 
        <ul className={styles.sponsorsList}>
         <li><img src="/logo-gatsby.svg" alt="Gatsby" /></li>
         <li><img src="/logo-agility.svg" alt="Agility" /></li>
        </ul>
 
-       <p className={styles.sponsorOutreach}>Interesting in sponsorship? Click here for Sponsor Prospectus.</p>
+       <p className={styles.sponsorOutreach}>Interesting in <a href="https://cdn.aglty.io/lhmgzmfh/click_deploy_prospectus_pdf.pdf" target="_blank">sponsorship</a>?</p>
      </div>
    );
  }

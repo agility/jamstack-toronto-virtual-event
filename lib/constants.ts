@@ -23,7 +23,7 @@ export const SITE_PRESENTS = 'jamstack toronto presents';
 export const SITE_NAME = 'click / deploy';
 export const SITE_DESCRIPTION = 'jamstack * wordpress * api * headless';
 export const META_DESCRIPTION = '';
-export const DATE = 'April 20th at 7:00pm est';
+export const DATE = 'June 3rd, 2021';
 export const SHORT_DATE = 'April 20th at 7:00pm est';
 export const FULL_DATE = 'Oct 27th 9am Pacific Time (GMT-7)';
 export const TWEET_TEXT = META_DESCRIPTION;
@@ -36,7 +36,7 @@ export const COPYRIGHT_HOLDER = process.env.NEXT_PUBLIC_COPYRIGHT_HOLDER;
 
 export const CODE_OF_CONDUCT =
   'https://www.notion.so/vercel/Code-of-Conduct-Example-7ddd8d0e9c354bb597a0faed87310a78';
-export const REPO = 'https://github.com/vercel/virtual-event-starter-kit';
+export const REPO = 'https://github.com/agility/jamstack-toronto-virtual-event';
 export const SAMPLE_TICKET_NUMBER = 1234;
 export const NAVIGATION = [
   {
