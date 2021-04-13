@@ -20,7 +20,10 @@
  
  export default function SponsorsHero() {
    return (
-     <div className={styles.sponsorsHero}>
+     <div className={cn(styles.sponsorsHero, {
+        [styleUtils.appear]: true,
+        [styleUtils['appear-fifth']]: true
+     })}>
        <p>Sponsors:</p>
 
        <ul className={styles.sponsorsList}>
