@@ -20,7 +20,7 @@
  import { Sponsor } from '@lib/types';
 
  type Props = {
-  sponsors: Sponsor[];
+  sponsors?: Sponsor[];
 };
 
  export default function SponsorsHero({sponsors}: Props) {
@@ -32,7 +32,7 @@
        <p>Sponsors:</p>
 
        <ul className={styles.sponsorsList}>
-        {sponsors.map(sponsor => (
+        {sponsors?.map(sponsor => (
           <SponsorItem key={sponsor.name} sponsor={sponsor} />
         ))}
        </ul>
