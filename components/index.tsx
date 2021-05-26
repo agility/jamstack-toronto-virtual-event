@@ -29,7 +29,7 @@ type Props = {
   defaultUserData: UserData;
   sharePage?: boolean;
   defaultPageState?: PageState;
-  sponsors: Sponsor[];
+  sponsors?: Sponsor[];
 };
 
 export default function Conf({
