@@ -37,7 +37,7 @@
         ))}
        </ul>
 
-       <p className={styles.sponsorOutreach}>Interesting in <a href="https://cdn.aglty.io/lhmgzmfh/click_deploy_prospectus_pdf.pdf" target="_blank">sponsorship</a>?</p>
+       <p className={styles.sponsorOutreach}>Interested in <a href="https://cdn.aglty.io/lhmgzmfh/click_deploy_prospectus_pdf.pdf" target="_blank">sponsorship</a>?</p>
      </div>
    );
  }
@@ -45,7 +45,7 @@
 function SponsorItem({ sponsor }: { sponsor: Sponsor }) {
   return(
     <li>
-      <img src={sponsor.logo.url + `?w=195`} alt={sponsor.name} />
+      <img src={sponsor.logo.url + `?w=300`} alt={sponsor.name} />
     </li>
   )
 }
