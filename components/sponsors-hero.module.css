@@ -16,7 +16,7 @@
 
  .sponsorsHero {
    margin: 50px auto;
-   max-width: 480px;
+   /*max-width: 480px;*/
    font-size: .8em;
  }
 
@@ -24,6 +24,7 @@
    list-style: none;
    display: flex;
    align-items: center;
+   flex-wrap: wrap;
    margin: 20px 0;
    padding: 0;
  }
@@ -37,13 +38,15 @@
    text-align: center;
  }
 
+
+
  @media (max-width: 768px) {
   .sponsorsHero {
-    max-width: 400px;
+    /*max-width: 400px;*/
   }
 
   .sponsorsList li img {
-    max-width: 150px;
+    /*max-width: 150px;*/
   }
 }
 

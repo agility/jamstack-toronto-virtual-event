@@ -23,17 +23,20 @@ import Hero from './hero';
 import Form from './form';
 import SponsorsHero from './sponsors-hero';
 import LearnMore from './learn-more';
+import { Sponsor } from '@lib/types';
 
 type Props = {
   defaultUserData: UserData;
   sharePage?: boolean;
   defaultPageState?: PageState;
+  sponsors: Sponsor[];
 };
 
 export default function Conf({
   defaultUserData,
   sharePage,
-  defaultPageState = 'registration'
+  defaultPageState = 'registration',
+  sponsors
 }: Props) {
   const [userData, setUserData] = useState<UserData>(defaultUserData);
   const [pageState, setPageState] = useState<PageState>(defaultPageState);
@@ -52,7 +55,7 @@ export default function Conf({
             <>
               <Hero />
               <Form />
-              <SponsorsHero />
+              <SponsorsHero sponsors={sponsors}/>
               <LearnMore />
             </>
           ) : (

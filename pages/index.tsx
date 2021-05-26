@@ -13,15 +13,23 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
+import { GetStaticProps } from 'next';
 import { useRouter } from 'next/router';
 import { SkipNavContent } from '@reach/skip-nav';
 
 import Page from '@components/page';
 import ConfContent from '@components/index';
+import { Sponsor } from '@lib/types';
 import { META_DESCRIPTION } from '@lib/constants';
+import { getAllSponsors } from '@lib/cms-api';
+import { mergeProps } from '@react-aria/utils';
 
-export default function Conf() {
+type Props = {
+  sponsors: Sponsor[];
+};
+
+
+export default function Conf({ sponsors }: Props) {
   const { query } = useRouter();
   const meta = {
     title: 'Click/Deploy Event - Presented by Jamstack Toronto',
@@ -41,7 +49,20 @@ export default function Conf() {
       <ConfContent
         defaultUserData={defaultUserData}
         defaultPageState={query.ticketNumber ? 'ticket' : 'registration'}
+        sponsors={sponsors}
       />
     </Page>
   );
 }
+
+
+export const getStaticProps: GetStaticProps<Props> = async () => {
+  const sponsors = await getAllSponsors();
+
+  return {
+    props: {
+      sponsors
+    },
+    revalidate: 60
+  };
+};

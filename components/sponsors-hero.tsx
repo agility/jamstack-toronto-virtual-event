@@ -17,8 +17,13 @@
  import cn from 'classnames';
  import styleUtils from './utils.module.css';
  import styles from './sponsors-hero.module.css';
- 
- export default function SponsorsHero() {
+ import { Sponsor } from '@lib/types';
+
+ type Props = {
+  sponsors: Sponsor[];
+};
+
+ export default function SponsorsHero({sponsors}: Props) {
    return (
      <div className={cn(styles.sponsorsHero, {
         [styleUtils.appear]: true,
@@ -27,11 +32,20 @@
        <p>Sponsors:</p>
 
        <ul className={styles.sponsorsList}>
-        <li><img src="/logo-gatsby.svg" alt="Gatsby" /></li>
-        <li><img src="/logo-agility.svg" alt="Agility" /></li>
+        {sponsors.map(sponsor => (
+          <SponsorItem key={sponsor.name} sponsor={sponsor} />
+        ))}
        </ul>
 
        <p className={styles.sponsorOutreach}>Interesting in <a href="https://cdn.aglty.io/lhmgzmfh/click_deploy_prospectus_pdf.pdf" target="_blank">sponsorship</a>?</p>
      </div>
    );
  }
+
+function SponsorItem({ sponsor }: { sponsor: Sponsor }) {
+  return(
+    <li>
+      <img src={sponsor.logo.url + `?w=195`} alt={sponsor.name} />
+    </li>
+  )
+}

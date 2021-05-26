@@ -154,19 +154,19 @@ export async function getAllSponsors(): Promise<Sponsor[]> {
 
     lst.push({
       name: company.fields.name,
-      discord: company.fields.discord,
-      slug: company.fields.slug,
-      website: company.fields.website,
-      callToAction: company.fields.callToAction.text,
-      callToActionLink: company.fields.callToAction.href,
-      youtubeSlug: company.fields.youtubeSlug,
-      tier: company.fields.tier,
-      description: company.fields.description,
+      discord: company.fields.discord ?? null,
+      slug: company.fields.slug ?? null,
+      website: company.fields.website ?? null,
+      callToAction: company.fields.callToAction.text ?? null,
+      callToActionLink: company.fields.callToAction.href ?? null, 
+      youtubeSlug: company.fields.youtubeSlug ?? null,
+      tier: company.fields.tier ?? null,
+      description: company.fields.description ?? null,
       cardImage: {
-        url: `${company.fields.cardImage.url}`
+        url: `${company.fields.cardImage?.url}`
       },
       logo: {
-        url: `${company.fields.logo.url}`
+        url: `${company.fields.logo?.url}`
       },
       links
     });
